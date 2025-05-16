@@ -209,7 +209,27 @@
     </div>
    </section>
   </main>
-
+<!-- Footer -->
+  <footer>
+   By Amit and Haitham
+  </footer>
+  <script>
+   // Show/hide top button based on scroll
+    const topBtn = document.getElementById('topBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        topBtn.style.display = 'flex';
+      } else {
+        topBtn.style.display = 'none';
+      }
+    });
+    // Scroll to top on click
+    topBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    // Initially hide top button
+    topBtn.style.display = 'none';
+  </script>
 
   </body>
   </head>
