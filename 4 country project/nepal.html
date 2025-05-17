@@ -1,352 +1,181 @@
+<!DOCTYPE html>
 <html lang="en">
- <head>
+<head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <title>
-   Explore Nepal - Top Destinations &amp; More
-  </title>
-  <script src="https://cdn.tailwindcss.com">
-  </script>
+  <title>Nepal</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap" rel="stylesheet"/>
-  <style>
-   body {
-      font-family: "Montserrat", sans-serif;
-      background-color: #f3f6f8;
-      color: #2c3e50;
-      scroll-behavior: smooth;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-    h1, h2, h3 {
-      color: #ba0c2f; /* Nepal red */
-    }
-    .letter-spacing-wide {
-      letter-spacing: 0.1em;
-    }
-    .btn-primary {
-      background-color: #003893; /* Nepal blue */
-      color: #f3f6f8;
-      transition: background-color 0.3s ease;
-    }
-    .btn-primary:hover {
-      background-color: #001f4d;
-    }
-    /* Image hover zoom */
-    .zoom-hover:hover img {
-      transform: scale(1.05);
-      transition: transform 0.4s ease;
-    }
-    footer {
-      background-color: #ba0c2f; /* Nepal red */
-      color: #f3f6f8;
-      text-align: center;
-      padding: 1rem 0;
-      flex-shrink: 0;
-      font-weight: 500;
-      font-size: 1rem;
-      user-select: none;
-    }
-    /* Top Button */
-    #topBtn {
-      position: fixed;
-      right: 1rem;
-      bottom: 1rem;
-      background-color: #003893; /* Nepal blue */
-      color: #f3f6f8;
-      border: none;
-      padding: 0.5rem 0.75rem;
-      border-radius: 0.375rem;
-      cursor: pointer;
-      font-weight: 600;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-      transition: background-color 0.3s ease;
-      z-index: 1000;
-      user-select: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.25rem;
-      line-height: 1;
-    }
-    #topBtn:hover {
-      background-color: #001f4d;
-    }
-    /* Hero Section */
-    .hero-container {
-      position: relative;
-      background: #f3f6f8;
-      max-width: 900px;
-      margin: 0 auto 3rem auto;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 1rem 2rem 2rem 2rem;
-      border-radius: 0.5rem;
-      box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
-    }
-    .hero-title {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #ba0c2f;
-      letter-spacing: 0.1em;
-      margin-bottom: 0.5rem;
-    }
-    .hero-subtitle {
-      font-size: 1.125rem;
-      color: #4a5a6a;
-      max-width: 600px;
-      margin-bottom: 1.5rem;
-      line-height: 1.4;
-    }
-    .hero-home-btn {
-      background-color: #003893;
-      color: #f3f6f8;
-      padding: 0.5rem 1.25rem;
-      border-radius: 0.375rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      user-select: none;
-    }
-    .hero-home-btn:hover {
-      background-color: #001f4d;
-    }
-    .flag-img {
-      width: 120px;
-      height: auto;
-      border-radius: 0.375rem;
-      box-shadow: 0 2px 8px rgb(0 0 0 / 0.15);
-      margin-top: 1rem;
-      user-select: none;
-    }
-  </style>
- </head>
- <body>
-  <!-- Top Button -->
-  <button aria-label="Scroll to top" id="topBtn" title="Back to Top" type="button">
-   ▲
-  </button>
-  <main class="max-w-7xl mx-auto px-6 pt-10 flex-grow" id="top">
-   <!-- Hero Section Minimalistic with Home Button -->
-   <section class="hero-container">
-    <h2 class="hero-title">
-     Explore the Wonders of Nepal
-    </h2>
-    <p class="hero-subtitle">
-     Discover Nepal’s majestic mountains, rich culture, ancient temples, and vibrant traditions.
-    </p>
-    <a aria-label="Go to Home" class="hero-home-btn" href="#" title="Home">
-     Home
-    </a>
-   </section>
-   <!-- About Nepal-->
-   <section class="bg-[#f3f6f8] py-12 rounded-lg shadow-inner mb-12">
-    <div class="max-w-4xl mx-auto text-center px-6">
-     <h2 class="text-3xl font-bold mb-6 letter-spacing-wide" style="color:#003893;">
-      About Nepal
-     </h2>
-     <p class="text-lg leading-relaxed mb-6" style="color:#2c3e50;">
-      Nepal is a landlocked country nestled in the Himalayas, renowned for its towering peaks, rich cultural heritage, and warm hospitality. It offers a unique blend of natural beauty and spiritual traditions, attracting trekkers, adventurers, and culture seekers alike. From the bustling streets of Kathmandu to the serene mountain trails, Nepal is a destination full of wonder and discovery.
-     </p>
-     <img alt="Flag of Nepal" class="flag-img mx-auto" src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Flag_of_Nepal.svg"/>
-    </div>
-   </section>
-   <!-- Top Destinations -->
-   <section>
-    <h2 class="text-3xl font-bold mb-8 text-center letter-spacing-wide" style="color:#ba0c2f;">
-     Top Tourist Destinations
-    </h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-     <div class="zoom-hover rounded overflow-hidden shadow-lg bg-white">
-      <img alt="Mount Everest view from Nepal" class="w-full h-48 object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/914c7091-c142-4531-83a3-1de2263aa1a2.jpg" width="600"/>
-      <div class="p-4">
-       <h3 class="text-xl font-semibold mb-2" style="color:#003893;">
-        Mount Everest
-       </h3>
-       <p class="text-gray-800">
-        The world’s highest peak, attracting climbers and trekkers from around the globe.
-       </p>
+</head>
+<body style="font-family: 'Montserrat', sans-serif; background-color: #f3f6f8; color: #2c3e50; scroll-behavior: smooth; min-height: 100vh; display: flex; flex-direction: column;">
+  
+  <main style="max-width: 1200px; margin: 0 auto; padding: 0 24px; padding-top: 40px; flex-grow: 1;" id="top">
+    <!-- Hero Section Minimalistic with Home Button -->
+    <section style="position: relative; background: white; max-width: 900px; margin: 0 auto 48px auto; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 16px 32px 32px 32px; border-radius: 0.5rem; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+      <h2 style="font-size: 2.5rem; font-weight: 700; color: #ba0c2f; letter-spacing: 0.1em; margin-bottom: 0.5rem;">Explore the Wonders of Nepal</h2>
+      <p style="font-size: 1.125rem; color: #4a5a6a; max-width: 600px; margin-bottom: 24px; line-height: 1.4;">Discover Nepal's majestic mountains, rich culture, ancient temples, and vibrant traditions.</p>
+      <a aria-label="Go to Home" href="C:\Users\Hamro Computers\Pictures\Frontend\4 country project\main.html" title="Home" style="background-color: #003893; color: #f3f6f8; padding: 8px 20px; border-radius: 0.375rem; font-weight: 600; text-decoration: none; transition: background-color 0.3s ease; box-shadow: 0 2px 6px rgba(0,0,0,0.2); user-select: none;">Home</a>
+    </section>
+    
+    <!-- About Nepal -->
+    <section style="background-color: #2990d4; padding: 48px 0; border-radius: 0.5rem; box-shadow: inset 0 0 10px rgba(0,0,0,0.1); margin-bottom: 48px;">
+      <div style="max-width: 800px; margin: 0 auto; text-align: center; padding: 0 24px;">
+        <h2 style="font-size: 1.875rem; font-weight: 700; margin-bottom: 24px; letter-spacing: 0.1em; color: #003893;">About Nepal</h2>
+        <p style="font-size: 1.125rem; line-height: 1.75; margin-bottom: 24px; color: #2c3e50;">Nepal is a landlocked country nestled in the Himalayas, renowned for its towering peaks, rich cultural heritage, and warm hospitality. It offers a unique blend of natural beauty and spiritual traditions, attracting trekkers, adventurers, and culture seekers alike. From the bustling streets of Kathmandu to the serene mountain trails, Nepal is a destination full of wonder and discovery.</p>
+        <img alt="Flag of Nepal" src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Flag_of_Nepal.svg" style="width: 120px; height: auto; border-radius: 0.375rem; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); margin-top: 16px; user-select: none; margin: 0 auto;"/>
       </div>
-     </div>
-     <div class="zoom-hover rounded overflow-hidden shadow-lg bg-white">
-      <img alt="Pashupatinath Temple in Kathmandu" class="w-full h-48 object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/4f99d4ba-ecf2-400c-131c-d4b3ea6af29d.jpg" width="600"/>
-      <div class="p-4">
-       <h3 class="text-xl font-semibold mb-2" style="color:#003893;">
-        Pashupatinath Temple
-       </h3>
-       <p class="text-gray-800">
-        A sacred Hindu temple complex on the banks of the Bagmati River in Kathmandu.
-       </p>
+    </section>
+    
+    <!-- Top Destinations -->
+    <section>
+      <h2 style="font-size: 1.875rem; font-weight: 700; margin-bottom: 32px; text-align: center; letter-spacing: 0.1em; color: #ba0c2f;">Top Tourist Destinations</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; margin-bottom: 48px;">
+        <div style="overflow: hidden; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); background-color: white;">
+          <img alt="Mount Everest view from Nepal" src="https://storage.googleapis.com/a1aa/image/914c7091-c142-4531-83a3-1de2263aa1a2.jpg" style="width: 100%; height: 192px; object-fit: cover;"/>
+          <div style="padding: 16px;">
+            <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 8px; color: #003893;">Mount Everest</h3>
+            <p style="color: #4a5568; font-weight: 500; margin-bottom: 4px;">
+              <strong>Location: Solukhumbu District</strong>
+            </p>
+            <p style="color: #2c3e50;">The world's highest peak, attracting climbers and trekkers from around the globe. </p>
+          </div>
+        </div>
+        
+        <div style="overflow: hidden; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); background-color: white;">
+          <img alt="Pashupatinath Temple in Kathmandu" src="https://storage.googleapis.com/a1aa/image/4f99d4ba-ecf2-400c-131c-d4b3ea6af29d.jpg" style="width: 100%; height: 192px; object-fit: cover;"/>
+          <div style="padding: 16px;">
+            <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 8px; color: #003893;">Pashupatinath Temple</h3>
+            <p style="color: #4a5568; font-weight: 500; margin-bottom: 4px;">
+              <strong>Location: Kathmandu</strong>
+            </p>
+            <p style="color: #2c3e50;">A sacred Hindu temple complex on the banks of the Bagmati River. </p>
+          </div>
+        </div>
+        
+        <div style="overflow: hidden; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); background-color: white;">
+          <img alt="Boudhanath Stupa in Kathmandu" src="https://storage.googleapis.com/a1aa/image/e31bde40-6619-4ee0-0d39-6b06602efd0a.jpg" style="width: 100%; height: 192px; object-fit: cover;"/>
+          <div style="padding: 16px;">
+            <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 8px; color: #003893;">Boudhanath Stupa</h3>
+            <p style="color: #4a5568; font-weight: 500; margin-bottom: 4px;">
+               <strong>Location: Kathmandu</strong>
+            </p>
+            <p style="color: #2c3e50;">One of the largest spherical stupas in Nepal and a UNESCO World Heritage site.</p>
+          </div>
+        </div>
+        
+        <div style="overflow: hidden; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); background-color: white;">
+          <img alt="Pokhara Phewa Lake" src="https://storage.googleapis.com/a1aa/image/2d907299-cd04-43a4-b294-0950cc057e45.jpg" style="width: 100%; height: 192px; object-fit: cover;"/>
+          <div style="padding: 16px;">
+            <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 8px; color: #003893;">Phewa Lake, Pokhara</h3>
+            <p style="color: #4a5568; font-weight: 500; margin-bottom: 4px;">
+               <strong>Location: Pokhara</strong>
+            </p>
+            <p style="color: #2c3e50;">A beautiful lake surrounded by mountains, popular for boating and relaxation. </p>
+          </div>
+        </div>
+        
+        <div style="overflow: hidden; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); background-color: white;">
+          <img alt="Chitwan National Park wildlife" src="https://storage.googleapis.com/a1aa/image/e9a9cbfd-c2b6-42ad-38d8-d2afd0cef8f7.jpg" style="width: 100%; height: 192px; object-fit: cover;"/>
+          <div style="padding: 16px;">
+            <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 8px; color: #003893;">Chitwan National Park</h3>
+            <p style="color: #4a5568; font-weight: 500; margin-bottom: 4px;">
+               <strong>Location: Chitwan District</strong>
+            </p>
+            <p style="color: #2c3e50;">Nepal's first national park, famous for its wildlife safaris and biodiversity. </p>
+          </div>
+        </div>
+        
+        <div style="overflow: hidden; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); background-color: white;">
+          <img alt="Bhaktapur Durbar Square" src="https://storage.googleapis.com/a1aa/image/bdd63a24-5625-4a5a-93bf-ce4a1f8f5a09.jpg" style="width: 100%; height: 192px; object-fit: cover;"/>
+          <div style="padding: 16px;">
+            <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 8px; color: #003893;">Bhaktapur Durbar Square</h3>
+            <p style="color: #4a5568; font-weight: 500; margin-bottom: 4px;">
+               <strong>Location: Bhaktapur</strong>
+            </p>
+            <p style="color: #2c3e50;">A historic square with ancient temples, palaces, and traditional Newari architecture. </p>
+          </div>
+        </div>
       </div>
-     </div>
-     <div class="zoom-hover rounded overflow-hidden shadow-lg bg-white">
-      <img alt="Boudhanath Stupa in Kathmandu" class="w-full h-48 object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/e31bde40-6619-4ee0-0d39-6b06602efd0a.jpg" width="600"/>
-      <div class="p-4">
-       <h3 class="text-xl font-semibold mb-2" style="color:#003893;">
-        Boudhanath Stupa
-       </h3>
-       <p class="text-gray-800">
-        One of the largest spherical stupas in Nepal and a UNESCO World Heritage site.
-       </p>
+    </section>
+    
+    <!-- Festivals Section -->
+    <section style="max-width: 960px; margin: 0 auto; padding: 48px 24px; background-color: white; border-radius: 0.5rem; box-shadow: inset 0 0 10px rgba(0,0,0,0.1); margin-bottom: 48px;">
+      <h2 style="font-size: 1.875rem; font-weight: 700; margin-bottom: 32px; text-align: center; letter-spacing: 0.1em; color: #ba0c2f;">Popular Festivals in Nepal</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; color: #2c3e50;">
+        <div style="overflow: hidden; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); background-color: white;">
+          <img alt="Dashain Festival celebration in Nepal" src="https://storage.googleapis.com/a1aa/image/c16d1dc7-a838-4044-c06d-577689d9a7c0.jpg" style="width: 100%; height: 192px; object-fit: cover;"/>
+          <div style="padding: 16px;">
+            <h3 style="font-weight: 600; margin-bottom: 12px; color: #003893;">Dashain Festival</h3>
+            <p style="font-weight: 500; margin-bottom: 4px;">
+              <strong>Date: October/November</strong>
+            </p>
+            <p>The longest and most auspicious festival in Nepal, celebrating the victory of good over evil with family gatherings and rituals.</p>
+          </div>
+        </div>
+        
+        <div style="overflow: hidden; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); background-color: white;">
+          <img alt="Tihar Festival lights and decorations" src="https://storage.googleapis.com/a1aa/image/69a51c08-6eb9-4a86-6590-6489d8bb39f3.jpg" style="width: 100%; height: 192px; object-fit: cover;"/>
+          <div style="padding: 16px;">
+            <h3 style="font-weight: 600; margin-bottom: 12px; color: #003893;">Tihar Festival</h3>
+            <p style="font-weight: 500; margin-bottom: 4px;">
+              <strong>Date: November</strong>
+            </p>
+            <p>Known as the festival of lights, it honors animals and family members with colorful decorations and celebrations.</p>
+          </div>
+        </div>
+        
+        <div style="overflow: hidden; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); background-color: white;">
+          <img alt="Holi Festival colors in Nepal" src="https://storage.googleapis.com/a1aa/image/325ecc29-70e1-40a1-66b8-f1494a84fe16.jpg" style="width: 100%; height: 192px; object-fit: cover;"/>
+          <div style="padding: 16px;">
+            <h3 style="font-weight: 600; margin-bottom: 12px; color: #003893;">Holi Festival</h3>
+            <p style="font-weight: 500; margin-bottom: 4px;">
+              <strong>Date: March</strong>
+            </p>
+            <p>The vibrant festival of colors celebrated with music, dancing, and throwing colored powders.</p>
+          </div>
+        </div>
+        
+        <div style="overflow: hidden; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); background-color: white;">
+          <img alt="Indra Jatra Festival in Kathmandu" src="https://storage.googleapis.com/a1aa/image/a8d29449-2f15-406d-30bb-28f55f1a4975.jpg" style="width: 100%; height: 192px; object-fit: cover;"/>
+          <div style="padding: 16px;">
+            <h3 style="font-weight: 600; margin-bottom: 12px; color: #003893;">Indra Jatra</h3>
+            <p style="font-weight: 500; margin-bottom: 4px;">
+              <strong>Date: September</strong>
+            </p>
+            <p>A major festival in Kathmandu featuring masked dances, chariot processions, and traditional rituals.</p>
+          </div>
+        </div>
       </div>
-     </div>
-     <div class="zoom-hover rounded overflow-hidden shadow-lg bg-white">
-      <img alt="Pokhara Phewa Lake" class="w-full h-48 object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/2d907299-cd04-43a4-b294-0950cc057e45.jpg" width="600"/>
-      <div class="p-4">
-       <h3 class="text-xl font-semibold mb-2" style="color:#003893;">
-        Phewa Lake, Pokhara
-       </h3>
-       <p class="text-gray-800">
-        A beautiful lake surrounded by mountains, popular for boating and relaxation.
-       </p>
+    </section>
+    
+    <!-- Facts Section -->
+    <section style="max-width: 960px; margin: 0 auto; padding: 48px 24px; background-color: white; border-radius: 0.5rem; box-shadow: inset 0 0 10px rgba(0,0,0,0.1); margin-bottom: 48px;">
+      <h2 style="font-size: 1.875rem; font-weight: 700; margin-bottom: 32px; text-align: center; letter-spacing: 0.1em; color: #ba0c2f;">Fascinating Facts About Nepal</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; color: #2c3e50;">
+        <div style="background-color: #f9fafb; border-radius: 0.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); padding: 24px;">
+          <h3 style="font-weight: 600; margin-bottom: 12px; color: #003893;">Home to the Highest Peak</h3>
+          <img alt="Mount Everest" src="https://storage.googleapis.com/a1aa/image/15d0dd6a-22e8-40d5-20ed-862c007e75be.jpg" style="width: 100%; height: 160px; object-fit: cover; border-radius: 0.375rem; margin-bottom: 12px;"/>
+          <p>Mount Everest, the tallest mountain in the world, is located in Nepal, attracting climbers and adventurers worldwide.</p>
+        </div>
+        
+        <div style="background-color: #f9fafb; border-radius: 0.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); padding: 24px;">
+          <h3 style="font-weight: 600; margin-bottom: 12px; color: #003893;">Rich Cultural Diversity</h3>
+          <img alt="Nepal cultural diversity" src="https://storage.googleapis.com/a1aa/image/f661954b-9c13-438b-0301-a573f1b9d232.jpg" style="width: 100%; height: 160px; object-fit: cover; border-radius: 0.375rem; margin-bottom: 12px;"/>
+          <p>Nepal is home to over 125 ethnic groups and 123 languages, making it a culturally rich and diverse country.</p>
+        </div>
+        
+        <div style="background-color: #f9fafb; border-radius: 0.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); padding: 24px;">
+          <h3 style="font-weight: 600; margin-bottom: 12px; color: #003893;">Birthplace of Buddha</h3>
+          <img alt="Lumbini, birthplace of Buddha" src="https://storage.googleapis.com/a1aa/image/679a6304-5154-4d3d-f3fe-f22444e100f6.jpg" style="width: 100%; height: 160px; object-fit: cover; border-radius: 0.375rem; margin-bottom: 12px;"/>
+          <p>Lumbini, located in Nepal, is the birthplace of Siddhartha Gautama, who later became the Buddha.</p>
+        </div>
+        
+        <div style="background-color: #f9fafb; border-radius: 0.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); padding: 24px;">
+          <h3 style="font-weight: 600; margin-bottom: 12px; color: #003893;">Unique Flag Shape</h3>
+          <img alt="Flag of Nepal" src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Flag_of_Nepal.svg" style="width: 100%; height: 160px; object-fit: contain; border-radius: 0.375rem; margin-bottom: 12px;"/>
+          <p>Nepal has the only national flag in the world that is not quadrilateral in shape.</p>
+        </div>
       </div>
-     </div>
-     <div class="zoom-hover rounded overflow-hidden shadow-lg bg-white">
-      <img alt="Chitwan National Park wildlife" class="w-full h-48 object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/e9a9cbfd-c2b6-42ad-38d8-d2afd0cef8f7.jpg" width="600"/>
-      <div class="p-4">
-       <h3 class="text-xl font-semibold mb-2" style="color:#003893;">
-        Chitwan National Park
-       </h3>
-       <p class="text-gray-800">
-        Nepal’s first national park, famous for its wildlife safaris and biodiversity.
-       </p>
-      </div>
-     </div>
-     <div class="zoom-hover rounded overflow-hidden shadow-lg bg-white">
-      <img alt="Bhaktapur Durbar Square" class="w-full h-48 object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/bdd63a24-5625-4a5a-93bf-ce4a1f8f5a09.jpg" width="600"/>
-      <div class="p-4">
-       <h3 class="text-xl font-semibold mb-2" style="color:#003893;">
-        Bhaktapur Durbar Square
-       </h3>
-       <p class="text-gray-800">
-        A historic square with ancient temples, palaces, and traditional Newari architecture.
-       </p>
-      </div>
-     </div>
-    </div>
-   </section>
-   <!-- Festivals Section -->
-   <section class="max-w-5xl mx-auto px-6 py-12 bg-[#f3f6f8] rounded-lg shadow-inner mb-12">
-    <h2 class="text-3xl font-bold mb-8 text-center letter-spacing-wide" style="color:#ba0c2f;">
-     Popular Festivals in Nepal
-    </h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 text-[#2c3e50]">
-     <div class="zoom-hover rounded overflow-hidden shadow-lg bg-white">
-      <img alt="Dashain Festival celebration in Nepal" class="w-full h-48 object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/c16d1dc7-a838-4044-c06d-577689d9a7c0.jpg" width="600"/>
-      <div class="p-4">
-       <h3 class="font-semibold mb-3" style="color:#003893;">
-        Dashain Festival
-       </h3>
-       <p>
-        The longest and most auspicious festival in Nepal, celebrating the victory of good over evil with family gatherings and rituals.
-       </p>
-      </div>
-     </div>
-     <div class="zoom-hover rounded overflow-hidden shadow-lg bg-white">
-      <img alt="Tihar Festival lights and decorations" class="w-full h-48 object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/69a51c08-6eb9-4a86-6590-6489d8bb39f3.jpg" width="600"/>
-      <div class="p-4">
-       <h3 class="font-semibold mb-3" style="color:#003893;">
-        Tihar Festival
-       </h3>
-       <p>
-        Known as the festival of lights, it honors animals and family members with colorful decorations and celebrations.
-       </p>
-      </div>
-     </div>
-     <div class="zoom-hover rounded overflow-hidden shadow-lg bg-white">
-      <img alt="Holi Festival colors in Nepal" class="w-full h-48 object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/325ecc29-70e1-40a1-66b8-f1494a84fe16.jpg" width="600"/>
-      <div class="p-4">
-       <h3 class="font-semibold mb-3" style="color:#003893;">
-        Holi Festival
-       </h3>
-       <p>
-        The vibrant festival of colors celebrated with music, dancing, and throwing colored powders.
-       </p>
-      </div>
-     </div>
-     <div class="zoom-hover rounded overflow-hidden shadow-lg bg-white">
-      <img alt="Indra Jatra Festival in Kathmandu" class="w-full h-48 object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/a8d29449-2f15-406d-30bb-28f55f1a4975.jpg" width="600"/>
-      <div class="p-4">
-       <h3 class="font-semibold mb-3" style="color:#003893;">
-        Indra Jatra
-       </h3>
-       <p>
-        A major festival in Kathmandu featuring masked dances, chariot processions, and traditional rituals.
-       </p>
-      </div>
-     </div>
-    </div>
-   </section>
-   <!-- Facts Section -->
-   <section class="max-w-5xl mx-auto px-6 py-12 bg-white rounded-lg shadow-inner mb-12">
-    <h2 class="text-3xl font-bold mb-8 text-center letter-spacing-wide" style="color:#ba0c2f;">
-     Fascinating Facts About Nepal
-    </h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 text-[#2c3e50]">
-     <div class="bg-gray-50 rounded shadow p-6">
-      <h3 class="font-semibold mb-3" style="color:#003893;">
-       Home to the Highest Peak
-      </h3>
-      <img alt="Mount Everest" class="w-full h-40 object-cover rounded mb-3" height="400" src="https://storage.googleapis.com/a1aa/image/15d0dd6a-22e8-40d5-20ed-862c007e75be.jpg" width="600"/>
-      <p>
-       Mount Everest, the tallest mountain in the world, is located in Nepal, attracting climbers and adventurers worldwide.
-      </p>
-     </div>
-     <div class="bg-gray-50 rounded shadow p-6">
-      <h3 class="font-semibold mb-3" style="color:#003893;">
-       Rich Cultural Diversity
-      </h3>
-      <img alt="Nepal cultural diversity" class="w-full h-40 object-cover rounded mb-3" height="400" src="https://storage.googleapis.com/a1aa/image/f661954b-9c13-438b-0301-a573f1b9d232.jpg" width="600"/>
-      <p>
-       Nepal is home to over 125 ethnic groups and 123 languages, making it a culturally rich and diverse country.
-      </p>
-     </div>
-     <div class="bg-gray-50 rounded shadow p-6">
-      <h3 class="font-semibold mb-3" style="color:#003893;">
-       Birthplace of Buddha
-      </h3>
-      <img alt="Lumbini, birthplace of Buddha" class="w-full h-40 object-cover rounded mb-3" height="400" src="https://storage.googleapis.com/a1aa/image/679a6304-5154-4d3d-f3fe-f22444e100f6.jpg" width="600"/>
-      <p>
-       Lumbini, located in Nepal, is the birthplace of Siddhartha Gautama, who later became the Buddha.
-      </p>
-     </div>
-     <div class="bg-gray-50 rounded shadow p-6">
-      <h3 class="font-semibold mb-3" style="color:#003893;">
-       Unique Flag Shape
-      </h3>
-      <img alt="Flag of Nepal" class="w-full h-40 object-cover rounded mb-3" src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Flag_of_Nepal.svg"/>
-      <p>
-       Nepal has the only national flag in the world that is not quadrilateral in shape.
-      </p>
-     </div>
-    </div>
-   </section>
+    </section>
   </main>
-  <!-- Footer -->
-  <footer>
-   Suprim Karki
-  </footer>
-  <script>
-   // Show/hide top button based on scroll
-    const topBtn = document.getElementById('topBtn');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-        topBtn.style.display = 'flex';
-      } else {
-        topBtn.style.display = 'none';
-      }
-    });
-    // Scroll to top on click
-    topBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-    // Initially hide top button
-    topBtn.style.display = 'none';
-  </script>
- </body>
+</body>
 </html>
-
