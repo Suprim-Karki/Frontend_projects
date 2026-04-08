@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Rippl Splash Screen — Every drop counts. SDG 6 Clean Water Initiative.">
+  <title>Rippl | Every Drop Counts</title>
+  <!-- Auto-redirect to Home Page after 4 seconds (HTML meta refresh) -->
+  <meta http-equiv="refresh" content="4; url=home.html">
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;700;800&family=Inter:wght@300;400;600&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet">
+  <!-- Global CSS for shared tokens -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Page-specific embedded CSS -->
+  <style>
+    /* Splash-specific overrides */
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-family: 'Inter', sans-serif;
+      background: #001e40;
+    }
+
+    /* Full-screen splash container */
+    .splash-container {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Background layers */
+    .splash-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .splash-bg .ocean-grad {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, #001e40 0%, #003366 100%);
+      opacity: 0.9;
+    }
+
+    .splash-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Bottom gradient overlay */
+    .splash-bottom-grad {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 33%;
+      background: linear-gradient(to top, #001e40, transparent);
+      opacity: 0.6;
+    }
+
+    /* Content canvas */
+    .splash-content {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 42rem;
+      padding: 0 1.5rem;
+      text-align: center;
+    }
+
+    /* Logo text */
+    .splash-logo {
+      font-family: 'Manrope', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: -0.04em;
+      margin-bottom: 3rem;
+    }
+
+
+
+    /* Hero message */
+    .splash-heading {
+      font-family: 'Manrope', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+    }
+
+    .splash-heading .accent {
+      color: #2dbcfe;
+    }
+
+    .splash-subtitle {
+      color: rgba(191, 219, 254, 0.7);
+      font-size: 1.125rem;
+      font-weight: 300;
+      max-width: 28rem;
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+    }
+
+    /* Team members display */
+    .splash-team {
+      color: rgba(191, 219, 254, 0.5);
+      font-size: 0.8125rem;
+      margin-bottom: 3rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* Glassmorphism countdown panel */
+    .countdown-panel {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 0.75rem 2rem;
+      border-radius: 9999px;
+      margin-bottom: 1.5rem;
+    }
+
+    /* CSS spinner (loading indicator) */
+    .spinner {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      border: 2px solid #2dbcfe;
+      border-top-color: transparent;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .countdown-text {
+      color: #ffffff;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      font-size: 0.9375rem;
+    }
+
+    /* Skip button */
+    .skip-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 9999px;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .skip-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+    }
+
+    /* Responsive */
+    @media (min-width: 768px) {
+      .splash-logo {
+        font-size: 2.5rem;
+      }
+
+      .splash-heading {
+        font-size: 3rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .splash-heading {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       SPLASH SCREEN — Full-screen overlay
+       ============================================================ -->
+  <main class="splash-container" id="splash-screen">
+    <!-- Background imagery -->
+    <div class="splash-bg">
+      <div class="ocean-grad"></div>
+      <img src="images/web_img_5.png" alt="Deep blue oceanic water surface with ethereal light rays">
+    </div>
+
+    <!-- Content Canvas -->
+    <div class="splash-content">
+      <!-- Logo -->
+      <div class="splash-logo">Rippl</div>
+
+
+      <!-- Impact Message -->
+      <h1 class="splash-heading">
+        Every drop counts – <br>
+        <span class="accent">small actions create big impact.</span>
+      </h1>
+      <p class="splash-subtitle">
+        Designing a sustainable future through clean water research and global collaboration.
+      </p>
+
+      <!-- Team Members -->
+      <p class="splash-team">
+        Team Rippl — Suprim Karki · Nirajan Bista · Jitendra Yadav · Nirajan Rokaya
+      </p>
+
+      <!-- Countdown Panel with CSS Spinner -->
+      <div class="countdown-panel">
+        <div class="spinner" role="img" aria-label="Loading spinner"></div>
+        <span class="countdown-text" id="countdown-text">Initializing Research Portal... 4s</span>
+      </div>
+
+      <!-- Skip Intro Button -->
+      <div>
+        <a href="home.html" class="skip-btn" id="skip-btn">Skip Intro →</a>
+      </div>
+    </div>
+
+    <!-- Bottom gradient -->
+    <div class="splash-bottom-grad"></div>
+  </main>
+
+  <!-- ============================================================
+       JAVASCRIPT — Countdown Timer & Skip Logic
+       ============================================================ -->
+  <script>
+    // === Countdown Timer (JavaScript) ===
+    // Displays a visible countdown from 4 to 0 and redirects to home.html
+    (function () {
+      var secondsLeft = 4;
+      var countdownEl = document.getElementById('countdown-text');
+      var skipBtn = document.getElementById('skip-btn');
+
+      // Update countdown every second
+      var timer = setInterval(function () {
+        secondsLeft--;
+        if (secondsLeft > 0) {
+          countdownEl.textContent = 'Initializing Research Portal... ' + secondsLeft + 's';
+        } else {
+          countdownEl.textContent = 'Launching...';
+          clearInterval(timer);
+          // Redirect to home page
+          window.location.href = 'home.html';
+        }
+      }, 1000);
+
+      // Skip button — cancel auto-redirect and go to home immediately
+      if (skipBtn) {
+        skipBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          clearInterval(timer);
+          window.location.href = 'home.html';
+        });
+      }
+    })();
+  </script>
+
+</body>
+
+</html>

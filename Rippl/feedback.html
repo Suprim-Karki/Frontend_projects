@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<!--
+  FEEDBACK & PROGRAM DIRECTORY — Rippl
+  Student 3: Feedback page
+  Features: Scrollable programme cards (4+), ratings/reviews (3+),
+  JavaScript feedback form with live character counter, validation, confirmation.
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Rippl Feedback — Share your insights on SDG 6 monitoring and clean water equity.">
+  <title>Rippl | Feedback &amp; Programme Directory</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .programme-scroll {
+      max-height: 520px;
+      overflow-y: auto;
+      padding-right: 0.5rem;
+    }
+
+    .programme-scroll::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .programme-scroll::-webkit-scrollbar-thumb {
+      background: var(--outline-variant);
+      border-radius: 4px;
+    }
+
+    .prog-card {
+      background: var(--surface-container-lowest);
+      border: 1px solid rgba(195, 198, 209, 0.15);
+      border-radius: var(--radius-xl);
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .prog-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .prog-btn {
+      display: inline-block;
+      padding: 0.5rem 1.25rem;
+      background: var(--secondary);
+      color: #fff;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      font-size: 0.8125rem;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .prog-btn:hover {
+      background: var(--primary-container);
+      transform: scale(1.05);
+    }
+
+    .review-card {
+      background: var(--surface-container-lowest);
+      border: 1px solid rgba(195, 198, 209, 0.15);
+      border-radius: var(--radius-xl);
+      padding: 1.5rem;
+    }
+
+    .filter-select {
+      padding: 0.625rem 1rem;
+      background: var(--surface-container-low);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--radius-lg);
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      color: var(--on-surface);
+      cursor: pointer;
+      outline: none;
+    }
+
+    .filter-select:focus {
+      border-color: var(--secondary-container);
+    }
+
+    .hero-feedback {
+      position: relative;
+      padding: 5rem 0 4rem;
+      overflow: hidden;
+    }
+
+    .hero-feedback .bg-strip {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--surface) 0%, #e0f2fe 100%);
+      z-index: 0;
+    }
+
+    @media (min-width: 768px) {
+      .feedback-hero-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .feedback-form-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .feedback-main {
+        grid-template-columns: 300px 1fr;
+      }
+
+      .review-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="site-header" id="top">
+    <nav class="site-header-nav">
+      <a href="home.html" class="nav-brand">Rippl</a>
+      <div class="nav-links" id="nav-links">
+        <a href="home.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="ais.html">Simulator</a>
+        <a href="feedback.html" class="active">Feedback</a>
+        <a href="team.html">Team</a>
+        <a href="profile.html">Profile</a>
+        <a href="sitemap.html">Sitemap</a>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main style="min-height:100vh;">
+    <!-- Hero Section -->
+    <section class="hero-feedback">
+      <div class="bg-strip"></div>
+      <div class="container" style="position:relative;z-index:10;">
+        <div style="display:grid;grid-template-columns:1fr;gap:3rem;align-items:center;" class="feedback-hero-grid">
+          <div>
+            <span
+              style="color:var(--secondary);font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;">Contributor
+              Channel</span>
+            <h1
+              style="font-family:var(--font-headline);font-size:3.5rem;font-weight:900;color:var(--primary);letter-spacing:-0.04em;line-height:1.05;margin:0.5rem 0 1rem;">
+              Fluid<br><span style="color:var(--secondary);">Insights.</span></h1>
+            <p style="color:var(--on-surface-variant);font-size:1.125rem;max-width:100%;line-height:1.7;">Your feedback
+              shapes the future of SDG 6 monitoring. Help us refine the digital research vessel for clean water equity.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scrollable Programmes & Feedback Form -->
+    <section class="section bg-surface">
+      <div class="container">
+        <div style="display:grid;grid-template-columns:1fr;gap:3rem;" class="feedback-main">
+          <!-- Left: Info Sidebar & Contact -->
+          <div>
+            <!-- Info Card -->
+            <div
+              style="background:var(--primary-container);border-radius:var(--radius-xl);padding:2rem;color:#fff;margin-bottom:1.5rem;">
+              <span class="material-symbols-outlined"
+                style="color:var(--secondary-container);font-size:2rem;margin-bottom:1rem;display:block;">water_drop</span>
+              <h2 style="font-size:1.25rem;font-weight:700;margin-bottom:0.75rem; color: white;">Integrity in Data</h2>
+              <p style="font-size:0.875rem;color:var(--on-primary-container);line-height:1.6;">We uphold the highest
+                standards of academic validation. Please ensure your feedback refers to specific AIS modules or data
+                visualizations.</p>
+            </div>
+            <!-- Contact cards -->
+            <div style="display:flex;flex-direction:column;gap:0.75rem;">
+              <div class="flex items-center gap-3"
+                style="padding:1rem;background:var(--surface-container-low);border-radius:var(--radius-xl);">
+                <span class="material-symbols-outlined" style="color:var(--secondary);">mail</span>
+                <div>
+                  <div style="font-weight:700;font-size:0.875rem;">Direct Inquiry</div>
+                  <div style="font-size:0.8125rem;color:var(--on-surface-variant);">jitendrakyadav9494@gmail.com</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-3"
+                style="padding:1rem;background:var(--surface-container-low);border-radius:var(--radius-xl);">
+                <span class="material-symbols-outlined" style="color:var(--secondary);">call</span>
+                <div>
+                  <div style="font-weight:700;font-size:0.875rem;">Tech Support</div>
+                  <div style="font-size:0.8125rem;color:var(--on-surface-variant);">+977 982-5769280</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Feedback Form -->
+          <div>
+            <form id="feedback-form" onsubmit="return validateForm(event);" novalidate>
+              <!-- Personal Details fieldset -->
+              <fieldset>
+                <legend>Personal Details</legend>
+                <div style="display:grid;grid-template-columns:1fr;gap:1rem;" class="feedback-form-grid">
+                  <div class="form-group">
+                    <label for="fullname" class="form-label">Full Name</label>
+                    <input type="text" id="fullname" name="fullname" class="form-input" placeholder="Your Name"
+                      required>
+                    <div class="form-error" id="fullname-error">Please enter your full name.</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" id="email" name="email" class="form-input" placeholder="Your Email" required>
+                    <div class="form-error" id="email-error">Please enter a valid email address.</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="phone" class="form-label">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" class="form-input" placeholder="+977 0000000000">
+                    <div class="form-error" id="phone-error">Please enter a valid phone number.</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="category" class="form-label">Feedback Category</label>
+                    <select id="category" name="category" class="form-select" required>
+                      <option value="">Select a category</option>
+                      <option value="technical">Technical Bug</option>
+                      <option value="data">Data Accuracy</option>
+                      <option value="feature">Feature Request</option>
+                      <option value="general">General Feedback</option>
+                    </select>
+                    <div class="form-error" id="category-error">Please select a category.</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="address" class="form-label">Address</label>
+                  <textarea id="address" name="address" class="form-textarea" rows="2"
+                    placeholder="Your address"></textarea>
+                </div>
+              </fieldset>
+
+              <!-- Feedback Details fieldset -->
+              <fieldset>
+                <legend>Feedback Details</legend>
+                <div class="form-group">
+                  <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <label for="message" class="form-label">Feedback Details</label>
+                    <span class="char-counter" id="char-counter">0 / 500</span>
+                  </div>
+                  <textarea id="message" name="message" class="form-textarea" rows="5" maxlength="500"
+                    placeholder="Please describe your insights or findings..." required></textarea>
+                  <div class="form-error" id="message-error">Please enter your feedback (at least 10 characters).</div>
+                </div>
+
+                <div class="form-group">
+                  <label for="visit-date" class="form-label">Date of Visit</label>
+                  <input type="date" id="visit-date" name="visit-date" class="form-input">
+                </div>
+
+                <div class="form-group">
+                  <label for="visit-datetime" class="form-label">Preferred Follow-up Time</label>
+                  <input type="datetime-local" id="visit-datetime" name="visit-datetime" class="form-input">
+                </div>
+
+                <div class="form-group">
+                  <label for="research-area" class="form-label">Research Area (type to search)</label>
+                  <input type="text" id="research-area" name="research-area" class="form-input" list="research-list"
+                    placeholder="Search research areas...">
+                  <datalist id="research-list">
+                    <option value="Water Quality Monitoring">
+                    <option value="Sanitation Infrastructure">
+                    <option value="Freshwater Ecology">
+                    <option value="Climate Hydrology">
+                    <option value="Community Health">
+                    <option value="Industrial Wastewater">
+                  </datalist>
+                </div>
+              </fieldset>
+
+              <!-- Agreement & Submit -->
+              <div
+                style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:1rem;">
+                <label
+                  style="display:flex;align-items:center;gap:0.5rem;font-size:0.875rem;color:var(--on-surface-variant);cursor:pointer;">
+                  <input type="checkbox" id="privacy-agree" style="accent-color:var(--secondary);">
+                  I agree to the Privacy Policy
+                </label>
+                <button type="submit" class="btn-primary" style="padding:1rem 2.5rem;">
+                  Submit Feedback
+                  <span class="material-symbols-outlined" style="font-size:1.125rem;">send</span>
+                </button>
+              </div>
+
+              <!-- Success Message -->
+              <div class="success-message" id="success-message">
+                ✓ Thank you for your feedback! Your insights help us improve our SDG 6 research platform.
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h2>Rippl</h2>
+        <p>Pioneering digital curation for Sustainable Development Goal 6.</p>
+
+      </div>
+      <div class="footer-col">
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="sitemap.html">Sitemap</a></li>
+          <li><a href="content_ST1.html">Research</a></li>
+          <li><a href="team.html">Team</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Tools</h3>
+        <div class="footer-tags">
+          <a href="pageEditor_ST3.html" class="footer-chip">Page Editor</a>
+          <a href="validation_ST3.html" class="footer-chip">Validation</a>
+        </div>
+      </div>
+      <div class="footer-col" style="margin-top:0;">
+        <h3>Compliance</h3>
+        <ul>
+          <li><a href="pageEditor_ST3.html#accessibility">Accessibility Statement</a></li>
+          <li style="margin-top:0.5rem;"><span
+              style="color:var(--outline);font-size:0.75rem;line-height:1.4;display:inline-block;">Developer: Student
+              3<br>Jitendra Yadav (w2148852)</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 SDG 6 Clean Water Initiative.</p>
+
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT — Form Validation, Character Counter, Confirmation -->
+  <script>
+    // === Live Character Counter ===
+    var messageEl = document.getElementById('message');
+    var counterEl = document.getElementById('char-counter');
+    messageEl.addEventListener('input', function () {
+      var current = messageEl.value.length;
+      var max = messageEl.getAttribute('maxlength');
+      counterEl.textContent = current + ' / ' + max;
+      if (current > max * 0.9) {
+        counterEl.style.color = 'var(--error)';
+      } else {
+        counterEl.style.color = 'var(--outline)';
+      }
+    });
+
+    // === Form Validation (JavaScript-enhanced) ===
+    function validateForm(e) {
+      e.preventDefault();
+      var isValid = true;
+
+      // Clear previous errors
+      document.querySelectorAll('.form-error').forEach(function (el) { el.style.display = 'none'; });
+      document.querySelectorAll('.form-input, .form-textarea, .form-select').forEach(function (el) { el.classList.remove('error'); });
+
+      // Validate Full Name
+      var fullname = document.getElementById('fullname');
+      if (!fullname.value.trim()) {
+        showError('fullname', 'Please enter your full name.');
+        isValid = false;
+      }
+
+      // Validate Email
+      var email = document.getElementById('email');
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email.value.trim() || !emailRegex.test(email.value)) {
+        showError('email', 'Please enter a valid email address.');
+        isValid = false;
+      }
+
+      // Validate Category
+      var category = document.getElementById('category');
+      if (!category.value) {
+        showError('category', 'Please select a feedback category.');
+        isValid = false;
+      }
+
+      // Validate Message (min 10 chars)
+      if (messageEl.value.trim().length < 10) {
+        showError('message', 'Please enter your feedback (at least 10 characters).');
+        isValid = false;
+      }
+
+      // If valid, show confirmation
+      if (isValid) {
+        document.getElementById('success-message').classList.add('show');
+        document.getElementById('feedback-form').reset();
+        counterEl.textContent = '0 / 500';
+        // Scroll to success message
+        document.getElementById('success-message').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+
+      return false;
+    }
+
+    // Show error near field
+    function showError(fieldId, message) {
+      var field = document.getElementById(fieldId);
+      var errorEl = document.getElementById(fieldId + '-error');
+      field.classList.add('error');
+      errorEl.textContent = message;
+      errorEl.style.display = 'block';
+    }
+
+    // Mobile nav toggle
+    var navToggle = document.getElementById('nav-toggle');
+    var navLinks = document.getElementById('nav-links');
+    if (navToggle) navToggle.addEventListener('click', function () { navLinks.classList.toggle('show'); });
+  </script>
+</body>
+
+
+</html>

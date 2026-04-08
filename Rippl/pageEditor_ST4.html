@@ -1,0 +1,269 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Editor — Nirajan Rokaya (Student 4)</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="pageEditor_validator.css"> <!-- External CSS link -->
+
+</head>
+<body>
+    
+    <!-- Update the header and the footer to be consistent with the rest of the pages you implemented -->
+
+    
+    <header class="site-header" id="top">
+        <nav class="site-header-nav">
+            <a href="home.html" class="nav-brand">Rippl</a>
+            <div class="nav-links" id="nav-links">
+                <a href="home.html">Home</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="ais.html">Simulator</a>
+                <a href="feedback.html">Feedback</a>
+                <a href="team.html">Team</a>
+                <a href="profile.html">Profile</a>
+                <a href="sitemap.html">Sitemap</a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+    </header>
+
+
+    <section class="stud"><h2>Nirajan Rokaya, Team Rippl, User Profile & Sitemap Architect</h2></section>
+
+    <div class="container">
+        <!-- Main content area -->
+        <main>
+
+            <!-- Update those first three sections for the pages you were responsible to implement -->
+
+            <section>
+                <h2 id="profile">Profile Analysis</h2><h3>Technical Description</h3>
+                        <p>Explain the HTML and CSS techniques used to implement this page. Justify the logic and purpose of the key tags and styling choices focusing on functionality and design without copying large code sections. Explain the purpose of key HTML tags and CSS properties. Specify key HTML tags and CSS properties used to create structure and styling.</p> 
+                    
+                    <h3>Accessibility</h3>
+                        <p>Explain how you used to addressed accessibility in this particular page you implemented.</p>
+                    
+                    <h3>Link to the validation page</h3> <!-- Update the path to link the Page Editor with the splash page -->
+                        <p><a href="validation_ST4.html#splashVal">View Validation Report</a>, use the marker to jump to the corresponding section of the validation page.</p> <!-- Update the path to link the Page Editor with the validation page and make it jump to the marker that contains a snapshot for the splash page -->
+
+                    <h3>Link to the page</h3>
+                        <p><a href="profile.html">Include a link to the actual page you describe.</a></p>
+            </section>
+
+            <section><h2 id="sitemap">Sitemap Analysis</h2><h3>Technical Description</h3>
+                        <p>Explain the HTML and CSS techniques used to implement this page. Justify the logic and purpose of the key tags and styling choices focusing on functionality and design without copying large code sections. Explain the purpose of key HTML tags and CSS properties. Specify key HTML tags and CSS properties used to create structure and styling.</p> 
+
+                    <h3>Accessibility</h3>
+                        <p>Explain how you used to addressed accessibility in this particular page you implemented.</p>
+
+                    <h3>Link to the validation page</h3> <!-- Update the path to link the Page Editor with the splash page -->
+                        <p><a href="validation_ST4.html#volunteerVal">View Validation Report</a>, use the marker to jump to the corresponding section of the validation page.</p> <!-- Update the path to link the Page Editor with the validation page and make it jump to the marker that contains a snapshot for the splash page -->
+
+                        
+                    <h3>Link to the page</h3>
+                        <p><a href="sitemap.html">Include a link to the actual page you describe.</a></p>
+            </section>
+
+            <section><h2 id="content">Content Analysis</h2><h3>Technical Description</h3>
+                <p>My content page focuses on "Global Water Accessibility" and examines the challenges faced by
+                    developing nations in accessing safe drinking water. The page follows the shared template
+                    structure with the standard header, footer, and CSS styles. I used semantic elements such as
+                    <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>, and <code>&lt;aside&gt;</code> to
+                    organise the content logically.
+                </p>
+                <p>Key CSS properties include <code>max-width</code> on the text container for readability,
+                    <code>border-left</code> styling on pull-quote boxes to visually distinguish them from body
+                    text, and <code>list-style-type</code> on ordered lists for numbered facts. Images use
+                    <code>width: 100%</code> and <code>object-fit: cover</code> to remain proportional.</p>
+
+                <h3>Accessibility</h3>
+                <p>The page follows a strict heading hierarchy from <code>&lt;h1&gt;</code> down to
+                    <code>&lt;h3&gt;</code>. All images include descriptive <code>alt</code> attributes. External
+                    links are clearly labelled and open in new tabs with <code>target="_blank"</code>. Tables
+                    (if present) use <code>&lt;th&gt;</code> elements for header rows to help assistive
+                    technologies interpret the data.</p>
+
+                <h3>Link to the validation page</h3>
+                <p><a href="validation_ST4.html#contentVal">View Content Page validation report</a>
+                </p>
+
+                <h3>Link to the page</h3>
+                <p><a href="content_ST4.html">View the Content Page</a></p>
+            </section>
+
+            <!-- ==================== CHALLENGES ==================== --><section><h2 id="challenge">Challenge</h2><p>The biggest challenge I had was building the Profile page wizard using only
+                    <code>prompt()</code> dialogs. I originally wanted to use HTML modals with custom styling,
+                    but the coursework required JavaScript <code>prompt()</code> and <code>confirm()</code>
+                    interactions. I learned how to chain multiple prompts inside a loop and handle the case where
+                    a user clicks "Cancel" — I used <code>confirm()</code> to ask whether they wanted to skip
+                    ahead or stop entirely.
+                </p>
+                <p>On the Sitemap page, getting the flexible column layout to look balanced was difficult. With
+                    four columns containing different numbers of links, some columns were much taller than others.
+                    I used <code>min-width: 200px</code> and <code>max-width: 250px</code> to keep all columns
+                    roughly the same width, and <code>flex-wrap: wrap</code> ensures they reflow gracefully on
+                    narrow screens.</p>
+                <p>I also found it tricky to keep the progress bar percentage in sync with user actions. Because
+                    <code>prompt()</code> is synchronous (it blocks the page until the user responds), I had to
+                    call <code>updateProgress()</code> after each individual prompt rather than at the end of
+                    each step. This taught me how synchronous browser APIs work differently from asynchronous
+                    ones.</p>
+            </section>
+
+            <!-- ==================== COMPLIANCE ==================== --><section><h2 id="compliance">Compliance</h2><p>My pages comply with the Janet Acceptable Use Policy. The Profile page collects answers via
+                    JavaScript <code>prompt()</code> dialogs, but this data is only stored temporarily in the
+                    browser's memory and displayed on-screen. It is never transmitted to a server, saved in a
+                    database, or stored in cookies. When the page is refreshed, all data is lost.</p>
+                <p>The Sitemap page is purely informational and contains no user-generated content. All links
+                    point to pages within the Rippl site. No external tracking scripts, advertisements, or
+                    analytics tools are included on any page. Content is educational and relates to SDG 6.</p>
+                <p>All images are project-generated or sourced from royalty-free platforms and credited
+                    appropriately. I validated my HTML and CSS using the W3C validators. The results and
+                    screenshots are documented on my
+                    <a href="validation_ST4.html">validation page</a>.
+                </p>
+            </section>
+
+            <!-- ==================== ACCESSIBILITY ==================== -->
+            <section>
+                <h2 id="accessibility">Accessibility</h2>
+                <p>For the User Profile and Sitemap, I focused on navigating complex structures. 
+                    The sitemap uses semantic nested lists that are easily traversed by screen readers. 
+                    For the Profile prompt wizard, I ensured that labels within the prompt text are clear and 
+                    that users can navigate back to the main site easily if they choose to skip the process. 
+                    I also used specific focus-styles for sitemap links to improve visual tracking.</p>
+            </section>
+
+            <!-- ==================== GROUP MEETINGS ==================== -->
+            <section>
+                <h2 id="group">Group Meetings and Individual Contribution Log</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Meeting</th>
+                            <th>Date & Time</th>
+                            <th>Format</th>
+                            <th>Objective</th>
+                            <th>Attended (Yes or No)</th>
+                            <th>My Individual Contribution</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>12 Feb 2026 (10:00 AM)</td>
+                            <td>Face-to-face</td>
+                            <td>Project Briefing</td>
+                            <td>Yes</td>
+                            <td>I participated in the project briefing. I proposed an interactive SVG sitemap to map out our 20 pages and took responsibility for the user profile logic.</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>20 Feb 2026 (1:30 PM)</td>
+                            <td>Online</td>
+                            <td>Design System</td>
+                            <td>Yes</td>
+                            <td>I developed the logic for the profile prompt wizard. I focused on making the user experience smooth while capturing awareness data.</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>05 Mar 2026 (11:00 AM)</td>
+                            <td>Face-to-face</td>
+                            <td>Core Development</td>
+                            <td>Yes</td>
+                            <td>I presented the draft of the sitemap architecture. I grouped pages into five layers (Home, Gallery, AIS, Feedback, and Profile) per the team role assignments.</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>18 Mar 2026 (4:00 PM)</td>
+                            <td>Online</td>
+                            <td>Mobile Optimization</td>
+                            <td>Yes</td>
+                            <td>I tested the synchronous prompt interaction. I ensured that the progress bar accurately updates as users complete each section of the profile wizard.</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>02 Apr 2026 (2:00 PM)</td>
+                            <td>Online</td>
+                            <td>Documentation</td>
+                            <td>Yes</td>
+                            <td>I drafted the technical overview for the sitemap SVG. I ensured that each node in the diagram was reachable and clearly labeled for accessibility.</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>12 Apr 2026 (10:30 AM)</td>
+                            <td>Face-to-face</td>
+                            <td>Submission Review</td>
+                            <td>Yes</td>
+                            <td>I conducted a final sitemap audit. I verified that all links across the Ripple platform are correctly mapped and functional.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+                </table>
+            </section>
+
+            <section>
+                <h2 id="ref">References</h2>
+                <ul class="ref">
+                    <li>MDN Web Docs (2026) <i>Window property: prompt().</i> Available at: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt" target="_blank">https://developer.mozilla.org/</a> (Last accessed: 01 Apr 2026).</li>
+                    <li>W3Schools (2026) <i>SVG Graphics: Intro to SVG.</i> Available at: <a href="https://www.w3schools.com/graphics/svg_intro.asp" target="_blank">https://www.w3schools.com/</a> (Last accessed: 02 Apr 2026).</li>
+                    <li>iStock (2026) <i>iStock Photo Library.</i> Available at: <a href="https://www.istockphoto.com/" target="_blank">https://www.istockphoto.com/</a> (Last accessed: 18 Mar 2026).</li>
+                </ul>
+            </section>
+
+        </main>
+
+        <!-- Sidebar area -->
+        <aside><h3>Core pages developed:</h3><ul class="top-level-ul"><li>Student 1</li><ul><li><a href="home.html">Home page</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="content_ST1.html">Content</a></li></ul><li>Student 2</li><ul><li><a href="splash.html">Splash Screen</a></li><li><a href="ais.html">Simulator</a></li><li><a href="content_ST2.html">Content</a></li></ul><li>Student 3</li><ul><li><a href="feedback.html">Feedback</a></li><li><a href="team.html">Team</a></li><li><a href="content_ST3.html">Content</a></li></ul><li>Student 4</li><ul><li><a href="profile.html">User Profile</a></li><li><a href="sitemap.html">Sitemap</a></li><li><a href="content_ST4.html">Content</a></li></ul><li><a href="#challenge">Challenges and Lessons Learned</a></li><li><a href="#compliance">Compliance</a></li><li><a href="#group">Group Meetings and Individual Contribution Log</a></li><li><a href="#ref">References</a></li></ul></aside>
+    </div>
+
+    
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>Rippl</h3>
+                <p>Pioneering digital curation for Sustainable Development Goal 6.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="sitemap.html">Sitemap</a></li>
+                    <li><a href="content_ST4.html">Research</a></li>
+                    <li><a href="team.html">Team</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Tools</h4>
+                <div class="footer-tags">
+                    <a href="pageEditor_ST4.html" class="footer-chip">Page Editor</a>
+                    <a href="validation_ST4.html" class="footer-chip">Validation</a>
+                </div>
+            </div>
+            <div class="footer-col" style="margin-top:0;">
+                <h4>Compliance</h4>
+                <ul>
+                    <li><a href="pageEditor_ST4.html#accessibility">Accessibility Statement</a></li>
+                    <li style="margin-top:0.5rem;"><span style="color:var(--outline);font-size:0.75rem;line-height:1.4;display:inline-block;">Developer: Student 4<br>Nirajan Rokaya (W2152961)</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 SDG 6 Clean Water Initiative.</p>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('nav-toggle').addEventListener('click', function() {
+            document.getElementById('nav-links').classList.toggle('show');
+        });
+    </script>
+
+</body>
+</html>

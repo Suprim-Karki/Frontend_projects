@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<!--
+  TEAM PAGE — Rippl
+  Student 3: Team Page
+  Features: 4 team member cards that link to student content pages.
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Meet the Rippl team — researchers and developers advancing SDG 6 Clean Water & Sanitation.">
+  <title>Rippl | Our Team</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Team grid using flexbox */
+    .team-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      max-width: 56rem;
+      margin: 0 auto;
+    }
+
+    /* Each team card */
+    .team-card {
+      background: var(--surface-container-lowest);
+      border: 1px solid rgba(195, 198, 209, 0.15);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      flex: 1 1 calc(50% - 1rem);
+      min-width: 260px;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .team-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* Image wrapper */
+    .team-card-image-box {
+      overflow: hidden;
+    }
+
+    .team-card-photo {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      height: auto;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    .team-card:hover .team-card-photo {
+      transform: scale(1.03);
+    }
+
+    /* Card info section */
+    .team-card-info {
+      padding: 1.5rem;
+    }
+
+    .team-card-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .team-card-role {
+      font-size: 0.875rem;
+      color: var(--secondary);
+      font-weight: 600;
+    }
+
+    .team-card-description {
+      font-size: 0.8125rem;
+      color: var(--on-surface-variant);
+      line-height: 1.7;
+      margin-top: 0.75rem;
+    }
+
+    .team-card-tags {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .team-tag {
+      font-size: 0.6875rem;
+    }
+
+    /* Hero section */
+    .team-hero {
+      position: relative;
+      padding: 6rem 0 3rem;
+      overflow: hidden;
+    }
+
+    .team-hero-bg {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: linear-gradient(135deg, var(--surface) 0%, #e0f2fe 50%, var(--surface) 100%);
+    }
+
+    .team-hero-content {
+      position: relative;
+      z-index: 10;
+    }
+
+    .team-hero-label {
+      color: var(--secondary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .team-hero-title {
+      font-family: var(--font-headline);
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: var(--primary);
+      letter-spacing: -0.04em;
+    }
+
+    .team-hero-text {
+      color: var(--on-surface-variant);
+      font-size: 1.125rem;
+      max-width: 36rem;
+      margin: 1rem auto 0;
+      line-height: 1.7;
+    }
+
+    /* CTA section */
+    .team-cta-section {
+      padding: 6rem 0;
+      background: var(--primary-container);
+      text-align: center;
+      color: #fff;
+    }
+
+    .team-cta-box {
+      max-width: 42rem;
+      margin: 0 auto;
+    }
+
+    .team-cta-icon {
+      font-size: 3rem;
+      color: var(--secondary-container);
+      margin-bottom: 1.5rem;
+    }
+
+    .team-cta-title {
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+      color: white;
+    }
+
+    .team-cta-text {
+      color: #bfdbfe;
+      font-size: 1.125rem;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    .team-cta-button {
+      padding: 1rem 3rem;
+      font-size: 1rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 767px) {
+      .team-card {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="site-header" id="top">
+    <nav class="site-header-nav">
+      <a href="home.html" class="nav-brand">Rippl</a>
+      <div class="nav-links" id="nav-links">
+        <a href="home.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="ais.html">Simulator</a>
+        <a href="feedback.html">Feedback</a>
+        <a href="team.html" class="active">Team</a>
+        <a href="profile.html">Profile</a>
+        <a href="sitemap.html">Sitemap</a>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="team-hero">
+      <div class="team-hero-bg"></div>
+      <div class="container team-hero-content">
+        <div class="text-center">
+          <span class="team-hero-label">Research Collective</span>
+          <h1 class="team-hero-title">Our Team</h1>
+          <p class="team-hero-text">The interdisciplinary team behind Rippl's mission to advance clean water research
+            and policy.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Grid -->
+    <section class="section bg-surface">
+      <div class="container">
+        <div class="team-grid" id="team-grid">
+          <!-- Member 1 — Student 1 -->
+          <a href="content_ST1.html" class="team-card">
+            <div class="team-card-image-box">
+              <img class="team-card-photo" src="images/student_1.png" alt="Suprim Karki">
+            </div>
+            <div class="team-card-info">
+              <h2 class="team-card-name">Suprim Karki</h2>
+              <p class="team-card-role">Student 1 | Lead Developer</p>
+              <p class="team-card-description">Developed the website's global CSS architecture and shared template,
+                alongside the immersive Home page and interactive Gallery.</p>
+              <div class="team-card-tags">
+                <span class="footer-chip team-tag">Template Lead</span>
+                <span class="footer-chip team-tag">Home & Gallery</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Member 2 — Student 2 -->
+          <a href="content_ST2.html" class="team-card">
+            <div class="team-card-image-box">
+              <img class="team-card-photo" src="images/student_2.png" alt="Nirajan Bista">
+            </div>
+            <div class="team-card-info">
+              <h2 class="team-card-name">Nirajan Bista</h2>
+              <p class="team-card-role">Student 2 | Simulation Specialist</p>
+              <p class="team-card-description">Implemented the dynamic Splash Screen and the Action Impact Simulator
+                (AIS) to visualize clean water conservation metrics.</p>
+              <div class="team-card-tags">
+                <span class="footer-chip team-tag">AIS Lead</span>
+                <span class="footer-chip team-tag">Splash Screen</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Member 3 — Student 3 -->
+          <a href="content_ST3.html" class="team-card">
+            <div class="team-card-image-box">
+              <img class="team-card-photo" src="images/student_3.png" alt="Jitendra Yadav">
+            </div>
+            <div class="team-card-info">
+              <h2 class="team-card-name">Jitendra Yadav</h2>
+              <p class="team-card-role">Student 3 | Community Strategist</p>
+              <p class="team-card-description">Designed the Feedback system to gather user insights and developed the
+                Team directory to showcase collaborative progress.</p>
+              <div class="team-card-tags">
+                <span class="footer-chip team-tag">Feedback Lead</span>
+                <span class="footer-chip team-tag">Team Page</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Member 4 — Student 4 -->
+          <a href="content_ST4.html" class="team-card">
+            <div class="team-card-image-box">
+              <img class="team-card-photo" src="images/student_4.png" alt="Nirajan Rokaya">
+            </div>
+            <div class="team-card-info">
+              <h2 class="team-card-name">Nirajan Rokaya</h2>
+              <p class="team-card-role">Student 4 | Architecture Lead</p>
+              <p class="team-card-description">Engineered the interactive User Profile system using JavaScript prompts
+                and built the graphical SVG Sitemap for site navigation.</p>
+              <div class="team-card-tags">
+                <span class="footer-chip team-tag">Profile Builder</span>
+                <span class="footer-chip team-tag">SVG Sitemap</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Collaborate CTA -->
+    <section class="team-cta-section">
+      <div class="container team-cta-box">
+        <span class="material-symbols-outlined team-cta-icon">groups</span>
+        <h2 class="team-cta-title">Collaborate With Us</h2>
+        <p class="team-cta-text">We are always looking for passionate researchers, engineers, and community leaders to
+          join our mission for clean water access.</p>
+        <a href="feedback.html" class="btn-accent team-cta-button">Get In Touch</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER — Student 3 page, so links go to ST3 -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h2>Rippl</h2>
+        <p>Pioneering digital curation for Sustainable Development Goal 6.</p>
+
+      </div>
+      <div class="footer-col">
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="sitemap.html">Sitemap</a></li>
+          <li><a href="content_ST1.html">Research</a></li>
+          <li><a href="team.html">Team</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Tools</h3>
+        <div class="footer-tags">
+          <a href="pageEditor_ST4.html" class="footer-chip">Page Editor</a>
+          <a href="validation_ST4.html" class="footer-chip">Validation</a>
+        </div>
+      </div>
+      <div class="footer-col" style="margin-top:0;">
+        <h3>Compliance</h3>
+        <ul>
+          <li><a href="pageEditor_ST3.html#accessibility">Accessibility Statement</a></li>
+          <li style="margin-top:0.5rem;"><span
+              style="color:var(--outline);font-size:0.75rem;line-height:1.4;display:inline-block;">Developer: Student
+              3<br>Jitendra Yadav (w2148852)</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 SDG 6 Clean Water Initiative.</p>
+
+    </div>
+  </footer>
+
+  <script>
+    var navToggle = document.getElementById('nav-toggle');
+    var navLinks = document.getElementById('nav-links');
+    if (navToggle) navToggle.addEventListener('click', function () { navLinks.classList.toggle('show'); });
+  </script>
+</body>
+
+
+</html>

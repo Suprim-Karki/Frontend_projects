@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Rippl — a digital research platform advancing SDG 6: Clean Water and Sanitation.">
+  <title>Rippl | SDG 6 Clean Water Initiative</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* Stats section header row */
+    .stats-header-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 4rem;
+      gap: 2rem;
+    }
+
+    .stats-header-text {
+      max-width: 100%;
+    }
+
+    .stats-title {
+      margin-bottom: 1rem;
+    }
+
+    .explore-link {
+      text-decoration: underline;
+      text-underline-offset: 8px;
+      text-decoration-thickness: 2px;
+    }
+
+    /* Stats cards container */
+    .stats-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    /* Large stats card with background image */
+    .big-card {
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      min-height: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .big-card-bg {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.2;
+    }
+
+    .big-card-content {
+      position: relative;
+      z-index: 10;
+    }
+
+    .big-card-title {
+      font-size: 1.875rem;
+      font-weight: 900;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    .big-card-text {
+      max-width: 28rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .info-tag {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-md);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.875rem;
+    }
+
+    /* Small dark card */
+    .dark-card {
+      background: var(--primary-container);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 1.5rem;
+    }
+
+    .dark-card-icon {
+      font-size: 3rem;
+      color: var(--secondary-container);
+    }
+
+    .dark-card-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: white;
+    }
+
+    .dark-card-text {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.875rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Pillars section */
+    .pillars-section {
+      overflow: hidden;
+    }
+
+    .pillars-title {
+      font-size: 2.5rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: var(--primary-container);
+      margin-bottom: 1rem;
+    }
+
+    .pillars-row {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .pillar-heading {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--primary-container);
+      margin-bottom: 1rem;
+    }
+
+    .pillar-text {
+      margin-bottom: 2rem;
+    }
+
+    /* Insights section */
+    .insights-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .insights-row {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+      align-items: center;
+      width: 100%;
+    }
+
+    .insights-image-box {
+      position: relative;
+      flex: 1;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .insights-image {
+      border-radius: var(--radius-2xl);
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      z-index: 10;
+    }
+
+    .quote-box {
+      position: absolute;
+      bottom: -2.5rem;
+      right: -2.5rem;
+      padding: 1.5rem;
+      border-radius: var(--radius-xl);
+      z-index: 20;
+      max-width: 240px;
+    }
+
+    .quote-text {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--primary-container);
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    .quote-author {
+      font-size: 0.75rem;
+      color: var(--on-surface-variant);
+      margin-top: 0.5rem;
+    }
+
+    .insights-text-box {
+      flex: 1;
+    }
+
+    .insights-title {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--primary-container);
+      margin-bottom: 2rem;
+      letter-spacing: -0.03em;
+    }
+
+    .insights-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .insight-row {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+
+    .insight-number {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: rgba(45, 188, 254, 0.4);
+      font-family: var(--font-headline);
+    }
+
+    .insight-heading {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary-container);
+      margin-bottom: 0.5rem;
+    }
+
+    /* Research gallery on home page */
+    .research-title {
+      font-size: 2.5rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: var(--primary-container);
+      margin-bottom: 1rem;
+    }
+
+    .research-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .research-card {
+      position: relative;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      display: block;
+      height: 250px;
+      flex: 1 1 calc(50% - 0.75rem);
+      min-width: 260px;
+      transition: transform 0.3s ease;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .research-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .research-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .research-card-overlay {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: linear-gradient(to top, rgba(0, 31, 63, 0.9) 0%, rgba(0, 31, 63, 0.4) 50%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+    }
+
+    .research-card-label {
+      color: var(--secondary-container);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .research-card-name {
+      color: #fff;
+      font-family: var(--font-headline);
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    /* Footer helper */
+    .footer-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+
+
+    .footer-icon {
+      font-size: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header" id="top">
+    <nav class="site-header-nav">
+      <a href="home.html" class="nav-brand">Rippl</a>
+      <div class="nav-links" id="nav-links">
+        <a href="home.html" class="active">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="ais.html">Simulator</a>
+        <a href="feedback.html">Feedback</a>
+        <a href="team.html">Team</a>
+        <a href="profile.html">Profile</a>
+        <a href="sitemap.html">Sitemap</a>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="hero-section">
+      <div class="hero-bg">
+        <img src="images/web_img_5.png" alt="Deep blue ocean water with sunrays piercing through the surface">
+      </div>
+      <div class="hero-content">
+        <div class="hero-text-container">
+          <h1>Every drop counts – <br><span class="accent">small actions create big impact.</span></h1>
+          <div class="hero-cta-group">
+            <a href="#pillars" class="btn-accent">Explore Research</a>
+            <a href="ais.html" class="btn-ghost">Launch Portal</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section bg-surface" id="stats-section">
+      <div class="container">
+        <div class="stats-header-row">
+          <div class="stats-header-text">
+            <h2 class="section-header stats-title">A Global Perspective</h2>
+            <p class="text-body">Real-time data visualization of the world's most critical hydrological metrics and
+              sanitation accessibility challenges.</p>
+          </div>
+
+        </div>
+        <div class="stats-cards">
+          <!-- AIS card — simplified -->
+          <div class="dark-card">
+            <span class="material-symbols-outlined dark-card-icon">satellite_alt</span>
+            <div>
+              <h3 class="dark-card-title">Aquatic Integrity System</h3>
+              <p class="dark-card-text">Our AIS tracking system monitors purity levels in 140+ countries,
+                utilizing satellite telemetry and local sensory nodes.</p>
+
+            </div>
+          </div>
+          <!-- Resource Scarcity card -->
+          <div class="dark-card">
+            <span class="material-symbols-outlined dark-card-icon">public</span>
+            <div>
+              <h3 class="dark-card-title">Resource Scarcity</h3>
+              <p class="dark-card-text">40% of the global population is affected by water scarcity. This number is
+                projected to rise with climate volatility.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Explore Our Students Research -->
+    <section class="section bg-surface-low" id="pillars">
+      <div class="container">
+        <div class="text-center mb-16">
+          <h2 class="pillars-title">Explore Our Research</h2>
+          <div class="section-divider"></div>
+          <p class="text-body" style="margin-top: 1rem;">Meet Team Rippl and explore our individual contributions to SDG
+            6.</p>
+        </div>
+        <div class="research-grid">
+          <a href="content_ST1.html" class="research-card">
+            <img src="images/report_1.png" alt="Water treatment facility with industrial filtration systems">
+            <div class="research-card-overlay">
+              <span class="research-card-label">Suprim Karki (w2158225)</span>
+              <h3 class="research-card-name">Water Conservation Strategies</h3>
+            </div>
+          </a>
+          <a href="content_ST2.html" class="research-card">
+            <img src="images/web_img_4.png" alt="Research laboratory with water quality testing equipment">
+            <div class="research-card-overlay">
+              <span class="research-card-label">Nirajan Bista (w2149563)</span>
+              <h3 class="research-card-name">Water Quality Monitoring</h3>
+            </div>
+          </a>
+          <a href="content_ST3.html" class="research-card">
+            <img src="images/web_img_12.png" alt="Clean drinking water being poured into a glass">
+            <div class="research-card-overlay">
+              <span class="research-card-label">Jitendra Yadav (w2148852)</span>
+              <h3 class="research-card-name">Community Sanitation Programs</h3>
+            </div>
+          </a>
+          <a href="content_ST4.html" class="research-card">
+            <img src="images/report_4.png" alt="Aerial view of a winding river through green landscape">
+            <div class="research-card-overlay">
+              <span class="research-card-label">Nirajan Rokaya (w2152961)</span>
+              <h3 class="research-card-name">Global Water Accessibility</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conservation Insights -->
+    <section class="section bg-white" id="insights-section">
+      <div class="container">
+        <div class="text-center mb-16">
+          <h2 style="font-size:2rem;font-weight:900;color:var(--primary-container);margin-bottom:0.5rem;">Conservation
+            Insights</h2>
+          <p class="text-body" style="text-align:center;">Small changes in daily habits can make a real difference for
+            clean water access
+            worldwide.</p>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:1.5rem;">
+          <div class="card" style="flex:1;min-width:200px;text-align:center;">
+            <div class="card-icon" style="text-align:center;"><span class="material-symbols-outlined">plumbing</span>
+            </div>
+            <h3 class="pillar-heading" style="text-align:center;">Upgrade Your Fixtures</h3>
+            <p class="text-body" style="text-align:center;">Low-flow showerheads and dual-flush toilets can save up to
+              40,000 gallons per household
+              every year. A simple switch with a big impact.</p>
+          </div>
+          <div class="card" style="flex:1;min-width:200px;text-align:center;">
+            <div class="card-icon" style="text-align:center;"><span class="material-symbols-outlined">factory</span>
+            </div>
+            <h3 class="pillar-heading" style="text-align:center;">Check Industrial Waste</h3>
+            <p class="text-body" style="text-align:center;">Businesses that track their chemical discharge help protect
+              local rivers and
+              groundwater from harmful contamination.</p>
+          </div>
+          <div class="card" style="flex:1;min-width:200px;text-align:center;">
+            <div class="card-icon" style="text-align:center;"><span class="material-symbols-outlined">campaign</span>
+            </div>
+            <h3 class="pillar-heading" style="text-align:center;">Speak Up Locally</h3>
+            <p class="text-body" style="text-align:center;">Encouraging local councils to invest in better storm water
+              systems helps prevent sewage
+              overflows reaching drinking water sources.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h2>Rippl</h2>
+        <p>Pioneering digital curation for Sustainable Development Goal 6.</p>
+
+      </div>
+      <div class="footer-col">
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="sitemap.html">Sitemap</a></li>
+          <li><a href="content_ST1.html">Research</a></li>
+          <li><a href="team.html">Team</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Tools</h3>
+        <div class="footer-tags">
+          <a href="pageEditor_ST1.html" class="footer-chip">Page Editor</a>
+          <a href="validation_ST1.html" class="footer-chip">Validation</a>
+        </div>
+      </div>
+      <div class="footer-col" style="margin-top:0;">
+        <h3>Compliance</h3>
+        <ul>
+          <li><a href="pageEditor_ST1.html#accessibility">Accessibility Statement</a></li>
+          <li style="margin-top:0.5rem;"><span
+              style="color:var(--outline);font-size:0.75rem;line-height:1.4;display:inline-block;">Developer: Student
+              1<br>Suprim Karki (w2158225)</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 SDG 6 Clean Water Initiative.</p>
+
+    </div>
+  </footer>
+
+  <script>
+    // Mobile navigation toggle
+    var navToggle = document.getElementById('nav-toggle');
+    var navLinks = document.getElementById('nav-links');
+    if (navToggle) {
+      navToggle.addEventListener('click', function () {
+        navLinks.classList.toggle('show');
+      });
+    }
+  </script>
+</body>
+
+
+</html>

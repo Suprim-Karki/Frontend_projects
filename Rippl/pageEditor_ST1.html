@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Editor — Suprim Karki (Student 1)</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="pageEditor_validator.css">
+
+</head>
+
+<body>
+
+    <header class="site-header" id="top">
+        <nav class="site-header-nav">
+            <a href="home.html" class="nav-brand">Rippl</a>
+            <div class="nav-links" id="nav-links">
+                <a href="home.html">Home</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="ais.html">Simulator</a>
+                <a href="feedback.html">Feedback</a>
+                <a href="team.html">Team</a>
+                <a href="profile.html">Profile</a>
+                <a href="sitemap.html">Sitemap</a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+    </header>
+
+
+    <section class="stud">
+        <h2>Suprim Karki, Team Rippl, Template, Home & Gallery Lead</h2>
+    </section>
+
+    <div class="container">
+        <!-- Main content area -->
+        <main>
+
+            <section>
+                <h2 id="home">Home Analysis</h2>
+                <h3>Technical Description</h3>
+                <p>The Home page serves as the main landing page for Rippl and was built using a combination of
+                    semantic HTML5 elements and embedded CSS. I used the <code>&lt;header&gt;</code>,
+                    <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, and <code>&lt;footer&gt;</code> tags to
+                    create a clear document structure. The hero section uses a full-width background image inside a
+                    <code>&lt;div&gt;</code> with <code>position: absolute</code> and <code>object-fit: cover</code>
+                    so that the image fills the viewport without distortion. A gradient overlay
+                    (<code>linear-gradient</code>) sits on top to improve text readability.
+                </p>
+                <p>The statistics section uses <code>flexbox</code> (<code>display: flex</code>) to arrange a header
+                    row and card components. The large "Aquatic Integrity System" card has a semi-transparent
+                    background image achieved with <code>opacity: 0.2</code> on the <code>&lt;img&gt;</code> element,
+                    while the text content is given a higher <code>z-index</code> to remain on top. The "Pillars of
+                    Sustainability" section organises three feature cards in a column layout using
+                    <code>flex-direction: column</code> with a <code>gap</code> of 2rem between items.
+                </p>
+                <p>For the "Explore Our Research" gallery at the bottom, I used <code>flex-wrap: wrap</code> so the
+                    cards reflow on smaller screens. Each research card has a <code>:hover</code> effect with
+                    <code>transform: translateY(-5px)</code> and a gradient overlay created with
+                    <code>linear-gradient(to top, ...)</code> to display text on top of images.
+                </p>
+
+                <h3>Accessibility</h3>
+                <p>Every image on the Home page has a descriptive <code>alt</code> attribute — for example, the hero
+                    image has <code>alt="Deep blue ocean water with sunrays piercing through the surface"</code>.
+                    The navigation uses an <code>aria-label="Toggle navigation"</code> on the mobile hamburger
+                    button. I made sure the colour contrast between white text and the dark blue background
+                    (<code>#001f3f</code>) meets WCAG AA requirements. All interactive elements such as links and
+                    buttons are keyboard-accessible by default because I used native <code>&lt;a&gt;</code> and
+                    <code>&lt;button&gt;</code> elements rather than styling <code>&lt;div&gt;</code> tags.
+                </p>
+
+                <h3>Link to the validation page</h3>
+                <p><a href="validation_ST1.html#splashVal">View Home Page validation report</a></p>
+
+                <h3>Link to the page</h3>
+                <p><a href="home.html">View the Home Page</a></p>
+            </section>
+
+            <!-- ==================== GALLERY PAGE ==================== -->
+            <section>
+                <h2 id="gallery">Gallery Analysis</h2>
+                <h3>Technical Description</h3>
+                <p>The Gallery page (titled "The Fluid Archive") displays six image cards in a responsive grid. I
+                    used <code>display: flex</code> with <code>flex-wrap: wrap</code> on the
+                    <code>.gallery-grid</code> container, giving each card
+                    <code>flex: 1 1 calc(33.333% - 1rem)</code> so they arrange into three columns on wide screens
+                    and collapse to fewer columns on smaller devices via a <code>min-width: 280px</code> constraint.
+                </p>
+                <p>Each gallery item has a hover overlay implemented with two layers: a
+                    <code>.gallery-info-overlay</code> that appears on hover via JavaScript event listeners
+                    (<code>mouseenter</code> / <code>mouseleave</code>). When hovered, a CSS class
+                    <code>.hovered</code> is added, which transitions the overlay from <code>opacity: 0</code> to
+                    <code>opacity: 1</code>. The overlay has a <code>linear-gradient(to top, ...)</code> background
+                    so the label text stays readable.
+                </p>
+                <p>The modal popup is built with a <code>.modal-backdrop</code> container that covers the full
+                    viewport using <code>position: fixed</code> and <code>inset: 0</code>. JavaScript functions
+                    <code>openModal(index)</code> and <code>closeModal()</code> control showing and hiding the modal
+                    by toggling an <code>.active</code> class. A keyboard listener closes the modal when the user
+                    presses Escape (<code>e.key === 'Escape'</code>).
+                </p>
+
+                <h3>Accessibility</h3>
+                <p>All gallery images carry descriptive <code>alt</code> text such as
+                    <code>alt="Advanced water sanitation facility"</code>. The modal close button uses
+                    <code>aria-label="Close modal"</code>. The gallery items are clickable via their
+                    <code>onclick</code> attribute and the modal can be dismissed with Escape, ensuring keyboard
+                    users can navigate without difficulty. I also ensured colour contrast is sufficient on the hover
+                    overlay text (white on a dark gradient).
+                </p>
+
+                <h3>Link to the validation page</h3>
+                <p><a href="validation_ST1.html#volunteerVal">View Gallery validation report</a></p>
+
+                <h3>Link to the page</h3>
+                <p><a href="gallery.html">View the Gallery Page</a></p>
+            </section>
+
+            <!-- ==================== CONTENT PAGE ==================== -->
+            <section>
+                <h2 id="content">Content Analysis</h2>
+                <h3>Technical Description</h3>
+                <p>My content page focuses on "Water Conservation Strategies" and follows the shared template
+                    structure. The page layout uses semantic tags: <code>&lt;article&gt;</code> for the main written
+                    content and <code>&lt;aside&gt;</code> for supplementary statistics. I used CSS
+                    <code>border-radius</code> and <code>box-shadow</code> on card components to separate visual
+                    sections.
+                </p>
+                <p>The page links back to the Home page within its summary section. Images are set to
+                    <code>width: 100%</code> with <code>object-fit: cover</code> so they scale proportionally. I
+                    used an ordered list (<code>&lt;ol&gt;</code>) for step-by-step conservation tips and an
+                    unordered list (<code>&lt;ul&gt;</code>) for quick-reference facts, keeping the document
+                    semantically meaningful.
+                </p>
+
+                <h3>Accessibility</h3>
+                <p>Heading hierarchy follows a logical flow from <code>&lt;h1&gt;</code> to <code>&lt;h3&gt;</code>,
+                    which aids screen reader navigation. All images have relevant <code>alt</code> text. Links are
+                    styled visually with an underline and colour contrast to distinguish them from body text.</p>
+
+                <h3>Link to the validation page</h3>
+                <p><a href="validation_ST1.html#contentVal">View Content Page validation report</a>
+                </p>
+
+                <h3>Link to the page</h3>
+                <p><a href="content_ST1.html">View the Content Page</a></p>
+            </section>
+
+            <!-- ==================== CHALLENGES ==================== -->
+            <section>
+                <h2 id="challenge">Challenge</h2>
+                <p>One of the biggest challenges I faced was making the hero image on the Home page look good on
+                    all screen sizes. Initially the image appeared stretched on very wide monitors. I fixed this by
+                    using <code>object-fit: cover</code> combined with a set <code>min-height</code>, which crops
+                    the image rather than stretching it. This taught me that responsive images require more than
+                    just setting <code>width: 100%</code>.</p>
+                <p>Another issue was the gallery hover overlay not appearing on mobile because there is no hover
+                    state on touchscreens. I learned that JavaScript event listeners
+                    (<code>mouseenter</code>/<code>mouseleave</code>) are more reliable than CSS
+                    <code>:hover</code> alone when you need to support both desktop and mobile interactions.
+                </p>
+                <p>I also had some trouble keeping the navigation bar consistent across all pages. Every time I
+                    changed a link, I had to update it on every HTML file manually. This taught me the importance
+                    of planning the site structure carefully before starting development, and made me appreciate
+                    why frameworks use reusable components.</p>
+            </section>
+
+            <!-- ==================== COMPLIANCE ==================== -->
+            <section>
+                <h2 id="compliance">Compliance</h2>
+                <p>All pages I developed follow the Janet Acceptable Use Policy guidelines. The content is
+                    original and created solely for educational purposes. No copyrighted material is used without
+                    proper attribution — all images are either generated or sourced from royalty-free providers
+                    and credited in the References section.</p>
+                <p>The pages do not contain any offensive, discriminatory, or misleading content. Personal data
+                    is not collected or stored; the feedback form is a front-end demonstration only and does not
+                    transmit data to a server. All external links open in new tabs using
+                    <code>target="_blank"</code> where appropriate, so users are aware they are leaving the site.
+                </p>
+                <p>I have validated my HTML using the
+                    <a href="https://validator.w3.org/" target="_blank">W3C Markup Validation Service</a>
+                    .The validation results and snapshots are documented on my
+                    <a href="validation_ST1.html">validation page</a>.
+                </p>
+            </section>
+
+            <!-- ==================== ACCESSIBILITY ==================== -->
+            <section>
+                <h2 id="accessibility">Accessibility</h2>
+                <p>To ensure WCAG 2.1 compliance, I implemented a logical heading hierarchy and high-contrast color
+                    schemes across the Home and Gallery pages. All informative images include descriptive
+                    <code>alt</code> text, and interactive elements like buttons have unique IDs for better
+                    screen reader navigation. I also ensured that the navigation menu is accessible via keyboard-only
+                    input using proper tab indices.
+                </p>
+            </section>
+
+            <!-- ==================== GROUP MEETINGS ==================== -->
+            <section>
+                <h2 id="group">Group Meetings and Individual Contribution Log</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Meeting</th>
+                            <th>Date & Time</th>
+                            <th>Format</th>
+                            <th>Objective</th>
+                            <th>Attended (Yes or No)</th>
+                            <th>My Individual Contribution</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>12 Feb 2026 (10:00 AM)</td>
+                            <td>Face-to-face</td>
+                            <td>Project Kick-off</td>
+                            <td>Yes</td>
+                            <td>I led the initial kick-off meeting where we selected SDG 6. I assigned the team roles
+                                and outlined the primary visual theme for the Rippl platform.</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>20 Feb 2026 (1:30 PM)</td>
+                            <td>Online</td>
+                            <td>Design System</td>
+                            <td>Yes</td>
+                            <td>I presented the core CSS architecture and the navigation template. We discussed how to
+                                link all 20 pages while maintaining a consistent header and footer.</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>05 Mar 2026 (11:00 AM)</td>
+                            <td>Face-to-face</td>
+                            <td>Core Development</td>
+                            <td>Yes</td>
+                            <td>I demonstrated the hero section and gallery hover interactions. I gathered feedback from
+                                the team to ensure the color palette was accessible for all users.</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>18 Mar 2026 (4:00 PM)</td>
+                            <td>Online</td>
+                            <td>Mobile Optimization</td>
+                            <td>Yes</td>
+                            <td>I reviewed the site's responsiveness. I adjusted the global container widths to ensure
+                                our research cards stacked correctly on smaller mobile devices.</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>02 Apr 2026 (2:00 PM)</td>
+                            <td>Online</td>
+                            <td>Documentation</td>
+                            <td>Yes</td>
+                            <td>I hosted a documentation review. I helped team members finalize their technical
+                                descriptions and double-checked the semantic HTML structures.</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>12 Apr 2026 (10:30 AM)</td>
+                            <td>Face-to-face</td>
+                            <td>Submission Review</td>
+                            <td>Yes</td>
+                            <td>I conducted the final quality audit. I ensured all student IDs were updated in the
+                                footers and that every navigation chip functioned as expected.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section>
+                <h2 id="ref">References</h2>
+                <ul class="ref">
+                    <li>MDN Web Docs (2026) <i>CSS Layout: Flexbox and Grid.</i> Available at: <a
+                            href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout"
+                            target="_blank">https://developer.mozilla.org/</a> (Last accessed: 02 Apr 2026).</li>
+                    <li>W3C (2026) <i>Web Content Accessibility Guidelines (WCAG) 2.2.</i> Available at: <a
+                            href="https://www.w3.org/WAI/standards-guidelines/wcag/"
+                            target="_blank">https://www.w3.org/</a> (Last accessed: 03 Apr 2026).</li>
+                    <li>iStock (2026) <i>iStock Photo Library.</i> Available at: <a href="https://www.istockphoto.com/"
+                            target="_blank">https://www.istockphoto.com/</a> (Last accessed: 15 Mar 2026).</li>
+                </ul>
+            </section>
+
+        </main>
+
+        <!-- Sidebar area -->
+        <aside>
+            <h3>Core pages developed:</h3>
+            <ul class="top-level-ul">
+                <li>Student 1</li>
+                <ul>
+                    <li><a href="home.html">Home page</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="content_ST1.html">Content</a></li>
+                </ul>
+                <li>Student 2</li>
+                <ul>
+                    <li><a href="splash.html">Splash Screen</a></li>
+                    <li><a href="ais.html">Simulator</a></li>
+                    <li><a href="content_ST2.html">Content</a></li>
+                </ul>
+                <li>Student 3</li>
+                <ul>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="content_ST3.html">Content</a></li>
+                </ul>
+                <li>Student 4</li>
+                <ul>
+                    <li><a href="profile.html">User Profile</a></li>
+                    <li><a href="sitemap.html">Sitemap</a></li>
+                    <li><a href="content_ST4.html">Content</a></li>
+                </ul>
+                <li><a href="#challenge">Challenges and Lessons Learned</a></li>
+                <li><a href="#compliance">Compliance</a></li>
+                <li><a href="#group">Group Meetings and Individual Contribution Log</a></li>
+                <li><a href="#ref">References</a></li>
+            </ul>
+        </aside>
+    </div>
+
+
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>Rippl</h3>
+                <p>Pioneering digital curation for Sustainable Development Goal 6.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="sitemap.html">Sitemap</a></li>
+                    <li><a href="content_ST1.html">Research</a></li>
+                    <li><a href="team.html">Team</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Tools</h4>
+                <div class="footer-tags">
+                    <a href="pageEditor_ST1.html" class="footer-chip">Page Editor</a>
+                    <a href="validation_ST1.html" class="footer-chip">Validation</a>
+                </div>
+            </div>
+            <div class="footer-col" style="margin-top:0;">
+                <h4>Compliance</h4>
+                <ul>
+                    <li><a href="pageEditor_ST1.html#accessibility">Accessibility Statement</a></li>
+                    <li style="margin-top:0.5rem;"><span
+                            style="color:var(--outline);font-size:0.75rem;line-height:1.4;display:inline-block;">Developer:
+                            Student 1<br>Suprim Karki (w2158225)</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 SDG 6 Clean Water Initiative.</p>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('nav-toggle').addEventListener('click', function () {
+            document.getElementById('nav-links').classList.toggle('show');
+        });
+    </script>
+
+</body>
+
+</html>

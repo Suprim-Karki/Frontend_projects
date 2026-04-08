@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<!--
+  SITEMAP — Rippl
+  Student 4: Sitemap with visual architecture diagram using flexbox
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Rippl Site Architecture — Visual sitemap of all SDG 6 research platform pages.">
+  <title>Rippl | Site Architecture</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Sitemap container */
+    .sitemap-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .sitemap-connector {
+      width: 2px;
+      height: 2rem;
+      background-color: var(--outline-variant);
+    }
+
+    /* Pages row */
+    .sitemap-pages {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 3rem;
+      width: 100%;
+    }
+
+    /* Each column */
+    .sitemap-column {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      min-width: 200px;
+      flex: 1;
+      max-width: 250px;
+    }
+
+    .sitemap-column-title {
+      text-align: center;
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--outline-variant);
+    }
+
+    /* Sitemap node/link */
+    .sitemap-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      background: var(--surface-container-lowest);
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      color: var(--on-surface);
+      text-align: center;
+      border: 1px solid var(--outline-variant);
+      transition: transform 0.2s ease, background-color 0.2s ease;
+      font-weight: 600;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .sitemap-link:hover {
+      transform: translateY(-3px);
+      background-color: var(--surface-container-low);
+      border-color: var(--primary);
+    }
+
+    /* Root node */
+    .sitemap-root {
+      background: var(--primary);
+      color: white;
+      font-size: 1.25rem;
+      padding: 1rem 3rem;
+      border: none;
+    }
+
+    .sitemap-root:hover {
+      background: var(--primary-container);
+      color: white;
+      border-color: transparent;
+    }
+
+    /* Hero */
+    .sitemap-hero {
+      padding: 5rem 0 3rem;
+      background: linear-gradient(135deg, var(--surface) 0%, #e0f2fe 100%);
+    }
+
+    .sitemap-hero-label {
+      color: var(--secondary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .sitemap-hero-title {
+      font-family: var(--font-headline);
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--primary);
+      letter-spacing: -0.04em;
+      margin-bottom: 1rem;
+    }
+
+    .sitemap-hero-text {
+      color: var(--on-surface-variant);
+      max-width: 36rem;
+      margin: 0 auto;
+      font-size: 1.125rem;
+    }
+
+    /* Support section */
+    .sitemap-support {
+      margin-top: 5rem;
+      text-align: center;
+      padding: 4rem 2rem;
+      background: var(--surface-container-low);
+      border-radius: var(--radius-2xl);
+    }
+
+    .sitemap-support-icon {
+      font-size: 3rem;
+      color: var(--secondary);
+      margin-bottom: 1rem;
+    }
+
+    .sitemap-support-title {
+      font-family: var(--font-headline);
+      font-size: 1.75rem;
+      font-weight: 900;
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+    }
+
+    .sitemap-support-text {
+      color: var(--on-surface-variant);
+      max-width: 28rem;
+      margin: 0 auto 2rem;
+    }
+
+    .sitemap-support-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .sitemap-pages {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .sitemap-column {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="site-header" id="top">
+    <nav class="site-header-nav">
+      <a href="home.html" class="nav-brand">Rippl</a>
+      <div class="nav-links" id="nav-links">
+        <a href="home.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="ais.html">Simulator</a>
+        <a href="feedback.html">Feedback</a>
+        <a href="team.html">Team</a>
+        <a href="profile.html">Profile</a>
+        <a href="sitemap.html" class="active">Sitemap</a>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="sitemap-hero">
+      <div class="container text-center">
+        <span class="sitemap-hero-label">Information Architecture</span>
+        <h1 class="sitemap-hero-title">Site Architecture</h1>
+        <p class="sitemap-hero-text">A visual overview of the Rippl platform structure. Click any node to navigate
+          directly to that page.</p>
+      </div>
+    </section>
+
+    <!-- Flexbox Architecture Diagram -->
+    <section class="section bg-surface">
+      <div class="container">
+        <div class="sitemap-container">
+          <a href="home.html" class="sitemap-link sitemap-root">Home</a>
+          <div class="sitemap-connector"></div>
+          <div class="sitemap-pages">
+            <div class="sitemap-column">
+              <h2 class="sitemap-column-title">General Pages</h2>
+              <a href="splash.html" class="sitemap-link">Splash Screen</a>
+              <a href="sitemap.html" class="sitemap-link">Sitemap</a>
+              <a href="feedback.html" class="sitemap-link">Feedback</a>
+              <a href="profile.html" class="sitemap-link">Profile</a>
+              <a href="team.html" class="sitemap-link">Team</a>
+            </div>
+            <div class="sitemap-column">
+              <h2 class="sitemap-column-title">Research &amp; Media</h2>
+              <a href="gallery.html" class="sitemap-link">Gallery</a>
+              <a href="ais.html" class="sitemap-link">Simulator (AIS)</a>
+              <a href="content_ST1.html" class="sitemap-link">Content ST1</a>
+              <a href="content_ST2.html" class="sitemap-link">Content ST2</a>
+              <a href="content_ST3.html" class="sitemap-link">Content ST3</a>
+              <a href="content_ST4.html" class="sitemap-link">Content ST4</a>
+            </div>
+            <div class="sitemap-column">
+              <h2 class="sitemap-column-title">Developer Tools</h2>
+              <a href="pageEditor_ST1.html" class="sitemap-link">Page Editor 1</a>
+              <a href="pageEditor_ST2.html" class="sitemap-link">Page Editor 2</a>
+              <a href="pageEditor_ST3.html" class="sitemap-link">Page Editor 3</a>
+              <a href="pageEditor_ST4.html" class="sitemap-link">Page Editor 4</a>
+            </div>
+            <div class="sitemap-column">
+              <h2 class="sitemap-column-title">Validation</h2>
+              <a href="validation_ST1.html" class="sitemap-link">Validation 1</a>
+              <a href="validation_ST2.html" class="sitemap-link">Validation 2</a>
+              <a href="validation_ST3.html" class="sitemap-link">Validation 3</a>
+              <a href="validation_ST4.html" class="sitemap-link">Validation 4</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Support Section -->
+        <div class="sitemap-support">
+          <span class="material-symbols-outlined sitemap-support-icon">help_center</span>
+          <h2 class="sitemap-support-title">Can't find what you're looking for?</h2>
+          <p class="sitemap-support-text">Our research portal is continuously expanding. Reach out for assistance.</p>
+          <div class="sitemap-support-buttons">
+            <a href="feedback.html" class="btn-primary">Contact Support</a>
+            <a href="home.html" class="btn-outline">Back to Home</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER — Student 4 page -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h2>Rippl</h2>
+        <p>Pioneering digital curation for Sustainable Development Goal 6.</p>
+
+      </div>
+      <div class="footer-col">
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="sitemap.html">Sitemap</a></li>
+          <li><a href="content_ST1.html">Research</a></li>
+          <li><a href="team.html">Team</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Tools</h3>
+        <div class="footer-tags">
+          <a href="pageEditor_ST4.html" class="footer-chip">Page Editor</a>
+          <a href="validation_ST4.html" class="footer-chip">Validation</a>
+        </div>
+      </div>
+      <div class="footer-col" style="margin-top:0;">
+        <h3>Compliance</h3>
+        <ul>
+          <li><a href="pageEditor_ST4.html#accessibility">Accessibility Statement</a></li>
+          <li style="margin-top:0.5rem;"><span
+              style="color:var(--outline);font-size:0.75rem;line-height:1.4;display:inline-block;">Developer: Student
+              4<br>Nirajan Rokaya (W2152961)</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 SDG 6 Clean Water Initiative.</p>
+
+    </div>
+  </footer>
+
+  <script>
+    var navToggle = document.getElementById('nav-toggle');
+    var navLinks = document.getElementById('nav-links');
+    if (navToggle) navToggle.addEventListener('click', function () { navLinks.classList.toggle('show'); });
+  </script>
+</body>
+
+
+</html>
