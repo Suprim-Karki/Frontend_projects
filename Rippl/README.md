@@ -30,12 +30,12 @@ A modern, responsive design system built with a focus on smooth transitions and 
 ---
 
 ## 👥 The Team
-| Student | ID | Research Focus |
+| Team Member | Research Focus |
 | :--- | :--- | :--- |
-| **Suprim Karki** (ST1) | Water Conservation Strategies |
-| **Nirajan Bista** (ST2) | Water Quality Monitoring |
-| **Jitendra Yadav** (ST3) | Community Sanitation Programs |
-| **Nirajan Rokaya** (ST4) | Global Water Accessibility |
+| **Suprim Karki** | Water Conservation Strategies |
+| **Nirajan Bista** | Water Quality Monitoring |
+| **Jitendra Yadav** | Community Sanitation Programs |
+| **Nirajan Rokaya** | Global Water Accessibility |
 
 ---
 
